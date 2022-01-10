@@ -92,8 +92,8 @@ setup(
         'Development Status :: 3 - Alpha',
 
         # Indicate who your project is intended for
-        'Intended Audience :: Control Engineers',
-        'Topic :: Control Systems',
+        'Intended Audience :: Developers',
+        'Topic :: Scientific/Engineering',
 
         # Pick your license as you wish
         'License :: OSI Approved :: MIT License',
