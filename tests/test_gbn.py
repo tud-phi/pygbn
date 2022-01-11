@@ -28,10 +28,10 @@ class TestGbn(unittest.TestCase):
         # generate the signal
         # the gbn function returns a time array and a signal array
         u = gbn(self.h, self.T, self.A, self.ts, 1)
-        u_target = np.array([-1, 1, 1, -1, -1, 
-                             -1, -1, 1, -1, 1, 
-                             -1, 1, 1, -1, -1,  
-                             1, -1, 1, 1, 1])
+        u_target = np.array([1, 1, 1, 1, 1, 
+                             1, 1, 1, 1, 1, 
+                             1, 1, 1, -1, -1, 
+                             -1, -1, -1, -1, -1])
 
         self.assertEqual(t.shape, u.shape)
         self.assertListEqual(u.tolist(), u_target.tolist())
