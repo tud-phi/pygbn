@@ -16,7 +16,7 @@ def gbn(h: float, T: float, A: float, ts: float, flag: int = 0) -> np.array:
 
     valid_signal = False
     start = 1
-    while ~valid_signal:
+    while valid_signal is False:
         # if x[i]==1, then switch the signal value, 
         # otherwise if x[i]==0, don't switch
         x = np.random.choice(2, N, p=[1-p, p])
