@@ -1,7 +1,8 @@
 import numpy as np
 
 
-def gbn(h: float, T: float, A: float, ts: float, flag: int = 0) -> np.array:
+def gbn(h: float, T: float, A: float, ts: float, 
+        flag: int = 0, max_it: int = 100) -> np.array:
     # Computing the non-switching probability
     if flag == 0:
         p = 1 - h / ts
@@ -16,7 +17,10 @@ def gbn(h: float, T: float, A: float, ts: float, flag: int = 0) -> np.array:
 
     valid_signal = False
     start = 1
-    while valid_signal is False:
+    it = -1
+    while valid_signal is False and it < max_it:
+        it = it + 1
+        
         # if x[i]==1, then switch the signal value, 
         # otherwise if x[i]==0, don't switch
         x = np.random.choice(2, N, p=[p, 1-p])
@@ -45,9 +49,34 @@ def gbn(h: float, T: float, A: float, ts: float, flag: int = 0) -> np.array:
         # 
 
         if flag == 0:
+            n_s = np.sum(np.diff(signal)!=0)
+
+            f_sw = int((n_s - n_s % 10) / 10)
+            f_sw = int(2*f_sw + 3)
+            s_sw = int(np.round((n_s - n_s % 20) / 20))
+
+            ind = np.argwhere(np.concatenate([np.array([1]), np.diff(signal)!=0])).squeeze()
+
+            if ind.ndim == 0 or ind.shape[0] == 0:
+                continue
+
+            dur_sw = np.diff(ind)
+            dur_sw = np.sort(dur_sw*h) # in seconds
+
+            if dur_sw.shape[0] < f_sw+1:
+                continue
+
+            if dur_sw.shape[0] < n_s-s_sw+1:
+                continue
+
             av = 1 * T / ts
+            if 0.8*av<n_s and n_s<1.2*av and dur_sw[f_sw]>0.1*ts and dur_sw[n_s-s_sw]<2.5*ts:
+                valid_signal = True
             pass
         else:
             valid_signal = True
+
+    if valid_signal == False:
+        raise RuntimeWarning("Could not find a valid signal, returning last signal instead")
 
     return signal

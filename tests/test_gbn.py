@@ -18,7 +18,23 @@ class TestGbn(unittest.TestCase):
     def seed(self):
         np.random.seed(1)
 
+    def test_gbn_over_damped(self):
+        print("test_gbn_over_damped")
+        self.seed()
+        self.init_parameters()
+
+        # generate time array
+        t = np.arange(start=0, stop=100*self.T, step=self.h)
+
+        # generate the signal
+        u = gbn(self.h, 100*self.T, self.A, self.ts, 0)
+        print("u", u)
+
+        self.assertEqual(t.shape, u.shape)
+        # here we are only validiting that it finishes without warnings
+
     def test_gbn_oscillary_min_phase(self):
+        print("test_gbn_oscillary_min_phase")
         self.seed()
         self.init_parameters()
 
@@ -26,8 +42,9 @@ class TestGbn(unittest.TestCase):
         t = np.arange(start=0, stop=self.T, step=self.h)
 
         # generate the signal
-        # the gbn function returns a time array and a signal array
         u = gbn(self.h, self.T, self.A, self.ts, 1)
+        print("u", u)
+
         u_target = np.array([1, 1, 1, 1, 1, 
                              1, 1, 1, 1, 1, 
                              1, 1, 1, -1, -1, 
