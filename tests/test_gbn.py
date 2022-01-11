@@ -10,10 +10,10 @@ from pygbn import gbn
 
 class TestGbn(unittest.TestCase):
     def init_parameters(self):
-        self.h = 0.05 # sampling period [s]
-        self.T = 1 # length of signal [s]
-        self.A = 1 # amplitude of signal
-        self.ts = 1 # estimated settling time of the process [s]
+        self.h = 0.05  # sampling period [s]
+        self.T = 1  # length of signal [s]
+        self.A = 1  # amplitude of signal
+        self.ts = 1  # estimated settling time of the process [s]
 
     def seed(self):
         np.random.seed(1)
@@ -28,10 +28,10 @@ class TestGbn(unittest.TestCase):
         # generate the signal
         # the gbn function returns a time array and a signal array
         u = gbn(self.h, self.T, self.A, self.ts, 1)
-        u_target = np.array([-1,  1,  1, -1, -1, 
-                             -1, -1,  1, -1,  1, 
-                             -1,  1,  1, -1, -1,  
-                             1, -1,  1,  1,  1])
+        u_target = np.array([-1, 1, 1, -1, -1, 
+                             -1, -1, 1, -1, 1, 
+                             -1, 1, 1, -1, -1,  
+                             1, -1, 1, 1, 1])
 
         self.assertEqual(t.shape, u.shape)
         self.assertListEqual(u.tolist(), u_target.tolist())

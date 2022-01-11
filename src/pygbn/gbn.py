@@ -1,5 +1,4 @@
 import numpy as np
-from typing import *
 
 
 def gbn(h: float, T: float, A: float, ts: float, flag: int = 0) -> np.array:
@@ -13,7 +12,7 @@ def gbn(h: float, T: float, A: float, ts: float, flag: int = 0) -> np.array:
     else:
         raise ValueError("flag must be 0, 1, or 2")
 
-    N = int(np.ceil(T/h).item()) # length of discrete signal
+    N = int(np.ceil(T / h).item()) # length of discrete signal
 
     valid_signal = False
     start = 1
@@ -46,7 +45,7 @@ def gbn(h: float, T: float, A: float, ts: float, flag: int = 0) -> np.array:
         # 
 
         if flag == 0:
-            av = 1*T/ts
+            av = 1 * T / ts
             pass
         else:
             valid_signal = True
