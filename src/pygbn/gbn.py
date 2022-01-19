@@ -1,8 +1,13 @@
 import numpy as np
+from typing import *
 
 
 def gbn(h: float, T: float, A: float, ts: float, 
-        flag: int = 0, max_it: int = 100) -> np.array:
+        flag: int = 0, max_it: int = 100, seed: Optional[int] = None) -> np.array:
+    # seed the random generator
+    if seed is not None:
+        np.random.seed(seed)
+
     # Computing the non-switching probability
     if flag == 0:
         p = 1 - h / ts

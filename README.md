@@ -22,6 +22,8 @@ import matplotlib.pyplot as plt
 from pygbn import gbn
 
 if __name__ == '__main__':
+    seed = 0 # random seed
+
     h = 0.05 # sampling period [s]
     T = 1 # length of signal [s]
     A = 1 # amplitude of signal
@@ -38,7 +40,7 @@ if __name__ == '__main__':
 
     # generate the signal
     # the gbn function returns a time array and a signal array
-    u = gbn(h, T, A, ts, flag)
+    u = gbn(h, T, A, ts, flag, seed=seed)
 
     # optional: plot the generated signal
     plt.plot(t, u)
