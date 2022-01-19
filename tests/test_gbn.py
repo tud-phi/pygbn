@@ -33,7 +33,6 @@ class TestGbn(unittest.TestCase):
 
     def test_gbn_oscillary_min_phase(self):
         print("test_gbn_oscillary_min_phase")
-        self.seed()
         self.init_parameters()
 
         # generate time array
