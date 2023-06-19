@@ -3,7 +3,7 @@ from typing import *
 
 
 def gbn(h: float, T: float, A: float, ts: float, 
-        flag: int = 0, max_it: int = 100, seed: Optional[int] = None) -> np.array:
+        flag: int = 0, max_it: int = 100, seed: Optional[int] = None) -> np.ndarray:
     # seed the random generator
     if seed is not None:
         np.random.seed(seed)
@@ -30,7 +30,7 @@ def gbn(h: float, T: float, A: float, ts: float,
         # otherwise if x[i]==0, don't switch
         x = np.random.choice(2, N, p=[p, 1-p])
 
-        signal = np.empty_like(x)
+        signal = np.empty_like(x, dtype=np.float)
         for i in range(N):
             if x[i] == 1:
                 signal[i] = -start * A
