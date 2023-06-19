@@ -1,6 +1,6 @@
 # pygbn
-[![ci](https://github.com/tud-cor-sr/pygbn/actions/workflows/release.yml/badge.svg)](https://github.com/mstoelzle/solving-occlusion/actions/workflows/main.yml)
-[![ci](https://github.com/tud-cor-sr/pygbn/actions/workflows/test.yml/badge.svg)](https://github.com/mstoelzle/solving-occlusion/actions/workflows/test.yml)
+[![ci](https://github.com/tud-cor-sr/pygbn/actions/workflows/release.yml/badge.svg)](https://github.com/tud-cor-sr/pygbn/actions/workflows/main.yml)
+[![ci](https://github.com/tud-cor-sr/pygbn/actions/workflows/test.yml/badge.svg)](https://github.com/tud-cor-sr/pygbn/actions/workflows/test.yml)
 
 This package implements the generalized binary noise (GBN) model of [[1]](#1) in Python. 
 The code is based on the Matlab implementation revised by Ivo Houtzager in 2007 at the Delft Center of Systems and Control.
