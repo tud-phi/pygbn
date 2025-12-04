@@ -12,7 +12,7 @@ license = {text = "MIT"}
 authors = [
     {name = "Maximilian Stölzle", email = "maximilian@stoelzle.ch"}
 ]
-keywords = ["sample", "setuptools", "development"]
+keywords = ["binary noise", "signal generation", "system identification", "test signals"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
