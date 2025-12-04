@@ -1,5 +1,51 @@
 [build-system]
-# These are the assumed default build requirements from pip:
-# https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
-requires = ["setuptools>=43.0.0", "wheel"]
+requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygbn"
+version = "0.1.3"
+description = "Python implementation of Generalized Binary Noise"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Maximilian Stölzle", email = "maximilian@stoelzle.ch"}
+]
+keywords = ["binary noise", "signal generation", "system identification", "test signals"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+    "peppercorn",
+    "numpy",
+]
+
+[project.optional-dependencies]
+dev = ["check-manifest", "matplotlib"]
+test = ["coverage", "pytest"]
+
+[project.urls]
+"Homepage" = "https://github.com/tud-phi/pygbn"
+"Bug Reports" = "https://github.com/tud-phi/pygbn/issues"
+"Source" = "https://github.com/tud-phi/pygbn/"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
