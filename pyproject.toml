@@ -41,17 +41,11 @@ test = ["coverage", "pytest"]
 "Bug Reports" = "https://github.com/tud-phi/pygbn/issues"
 "Source" = "https://github.com/tud-phi/pygbn/"
 
-[project.scripts]
-sample = "sample:main"
-
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[tool.setuptools.package-data]
-sample = ["package_data.dat"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
